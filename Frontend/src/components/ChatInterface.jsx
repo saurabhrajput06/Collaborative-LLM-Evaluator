@@ -12,7 +12,7 @@ export const ChatInterface = ({ inputValue, setInputValue, handleSend }) => {
           </div>
           <input
             type="text"
-            className="w-full bg-transparent text-slate-100 py-4 pl-4 pr-16 text-lg outline-none font-light placeholder:text-slate-600 focus:placeholder:text-slate-500 transition-colors"
+            className="w-full bg-transparent text-slate-100 py-4 pl-4 pr-16 text-xl outline-none font-light placeholder:text-slate-600 focus:placeholder:text-slate-500 transition-colors"
             placeholder="Enter directive parameters..."
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}

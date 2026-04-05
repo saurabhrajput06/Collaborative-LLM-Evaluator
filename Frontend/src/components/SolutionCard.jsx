@@ -27,7 +27,7 @@ export const SolutionCard = ({ title, markdown, score, reason, isWinner }) => {
           </div>
         </div>
         
-        <div className="prose prose-invert prose-base text-[1.05rem] flex-grow mb-6 max-w-none text-slate-200 leading-relaxed font-light mt-2">
+        <div className="prose prose-invert prose-lg text-[1.15rem] flex-grow mb-6 max-w-none text-slate-200 leading-relaxed font-light mt-2">
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]} 
             rehypePlugins={[rehypeHighlight]}
@@ -41,7 +41,7 @@ export const SolutionCard = ({ title, markdown, score, reason, isWinner }) => {
             <Scale className={`w-6 h-6 mt-0.5 flex-shrink-0 ${isWinner ? 'text-fuchsia-400' : 'text-slate-500'}`} />
             <div className="relative z-10">
               <p className={`text-sm font-bold uppercase tracking-widest mb-2 ${isWinner ? 'text-indigo-300' : 'text-slate-500'}`}>Judge Reasoning</p>
-              <p className="text-base text-slate-300 leading-relaxed">{reason}</p>
+              <p className="text-lg text-slate-300 leading-relaxed">{reason}</p>
             </div>
           </div>
         </div>

@@ -3,23 +3,7 @@ import { Sparkles, Scale, Cpu } from "lucide-react";
 import { UserMessage } from "../components/UserMessage";
 import { ArenaResponse } from "../components/ArenaResponse";
 import { ChatInterface } from "../components/ChatInterface";
-
-// Sample dummy data to emulate an AI response
-const generateDummyResponse = (problem) => {
-  return {
-    id: Date.now().toString(),
-    problem: problem,
-    solution_1: `Here is the first solution. It is straightforward and easy to understand.\n\n\`\`\`javascript\nfunction greet(name) {\n  console.log("Hello, " + name);\n}\ngreet("World");\n\`\`\`\n\nThis uses a basic string concatenation approach.`,
-    solution_2: `Here is the second solution, which is slightly more modern.\n\n\`\`\`javascript\nconst greet = (name) => {\n  console.log(\`Hello, \${name}\`);\n}\ngreet("World");\n\`\`\`\n\nThis uses an arrow function and template literals.`,
-    judge: {
-      solution_1_score: 8,
-      solution_2_score: 10,
-      solution_1_reasoning: "Good, but uses older syntax which feels a bit dated.",
-      solution_2_reasoning: "Excellent use of modern ES6+ syntax, making it cleaner and more idiomatic."
-    }
-  };
-};
-
+import axios from "axios";
 const MessageItem = ({ data }) => {
   return (
     <div className="mb-14 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
@@ -42,16 +26,28 @@ export default function App() {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
-    // We add the Dummy Data directly to state.
-    // In a real application, we would send the problem to a backend endpoint.
-    const newMessage = generateDummyResponse(inputValue);
-    
-    setMessages((prev) => [...prev, newMessage]);
-    setInputValue("");
+    try {
+      const response = await axios.post("http://localhost:3000/invoke", {
+        input: inputValue
+      });
+      const data = response.data;
+      console.log(data);
+
+      const newMessage = {
+        id: Date.now().toString(),
+        problem: inputValue,
+        ...data.result
+      };
+      
+      setMessages((prev) => [...prev, newMessage]);
+      setInputValue("");
+    } catch (error) {
+      console.error("API error:", error);
+    }
   };
 
   return (
@@ -72,7 +68,7 @@ export default function App() {
           </div>
           <div className="flex flex-col">
             <h1 className="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-purple-300">BATTLE ARENA</h1>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-indigo-400">Neural Evaluation Engine</span>
+            <span className="text-[12px] uppercase font-mono tracking-widest text-indigo-400">Neural Evaluation Engine</span>
           </div>
         </div>
         <div className="flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-900 border border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.15)]">
