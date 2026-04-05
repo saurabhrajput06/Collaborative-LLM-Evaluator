@@ -90,7 +90,7 @@ export default function App() {
               </div>
               <h2 className="text-4xl font-bold mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white to-purple-300">WELCOME TO AI BATTLE ARENA</h2>
               <p className="text-slate-400/80 max-w-lg text-lg leading-relaxed font-light backdrop-blur-sm bg-slate-900/30 p-6 rounded-2xl border border-white/5">
-              Enter your commands here. Our system will deploy dual models to create competing versions and, finalized via a structured grading and ranking system
+              Enter your commands here. Our system will deploy dual models to create competing versions and, suggested them via a structured grading and ranking system
               </p>
             </div>
           ) : (

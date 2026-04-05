@@ -13,7 +13,7 @@ export const ChatInterface = ({ inputValue, setInputValue, handleSend }) => {
           <input
             type="text"
             className="w-full bg-transparent text-slate-100 py-4 pl-4 pr-16 text-xl outline-none font-light placeholder:text-slate-600 focus:placeholder:text-slate-500 transition-colors"
-            placeholder="Enter directive parameters..."
+            placeholder="Define your objective..."
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             autoFocus
@@ -27,8 +27,8 @@ export const ChatInterface = ({ inputValue, setInputValue, handleSend }) => {
           </button>
         </form>
         <div className="text-center mt-1 flex items-center justify-center gap-2">
-          <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-pulse"></span>
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">Secure AI Processing Tunnel</span>
+          <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-pulse"></span>
+          <span className="text-[15px] font-mono uppercase tracking-[0.1em] text-slate-500">Secure AI Processing Tunnel</span>
           <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-pulse"></span>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const UserMessage = ({ problem }) => {
   return (
     <div className="flex gap-4 mb-10 w-full justify-end">
       <div className="flex flex-col items-end">
-        <span className="text-xs font-semibold text-slate-500 mb-1 mr-2 uppercase tracking-wider">User Node</span>
+        <span className="text-xs font-semibold text-slate-500 mb-1 mr-2 uppercase tracking-wider">User</span>
         <div className="relative group">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
           <div className="relative bg-slate-900 border border-slate-700/50 px-6 py-4 rounded-2xl rounded-tr-none shadow-2xl text-slate-200 text-lg max-w-4xl 2xl:max-w-screen-md leading-relaxed backdrop-blur-md">
