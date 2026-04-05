@@ -67,13 +67,13 @@ export default function App() {
             </div>
           </div>
           <div className="flex flex-col">
-            <h1 className="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-purple-300">BATTLE ARENA</h1>
+            <h1 className="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-purple-300"> BATTLE ARENA</h1>
             <span className="text-[12px] uppercase font-mono tracking-widest text-indigo-400">Neural Evaluation Engine</span>
           </div>
         </div>
         <div className="flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-900 border border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.15)]">
-          <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] mr-2 animate-pulse"></div>
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-300">System Online</span>
+          <div className="w-3 h-3 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] mr-2 animate-pulse"></div>
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-350">System Online</span>
         </div>
       </header>
 
@@ -88,9 +88,9 @@ export default function App() {
                   <Cpu className="w-12 h-12 text-indigo-400" />
                 </div>
               </div>
-              <h2 className="text-4xl font-bold mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white to-purple-300">INITIATE SEQUENCE</h2>
+              <h2 className="text-4xl font-bold mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white to-purple-300">WELCOME TO AI BATTLE ARENA</h2>
               <p className="text-slate-400/80 max-w-lg text-lg leading-relaxed font-light backdrop-blur-sm bg-slate-900/30 p-6 rounded-2xl border border-white/5">
-                Input your directives below. The orchestrator will deploy dual models to formulate competing syntaxes, followed by a systemic review protocol.
+              Enter your commands here. Our system will deploy dual models to create competing versions and, finalized via a structured grading and ranking system
               </p>
             </div>
           ) : (
