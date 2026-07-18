@@ -19,7 +19,15 @@ const API_URL =
     : "https://collaborative-llm-evaluator-backend.onrender.com/invoke";
 
 export default function App() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    try {
+      const saved = localStorage.getItem("battle_arena_messages");
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      console.error("Failed to load messages from localStorage:", e);
+      return [];
+    }
+  });
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef(null);
 
@@ -28,8 +36,20 @@ export default function App() {
   };
 
   useEffect(() => {
+    try {
+      localStorage.setItem("battle_arena_messages", JSON.stringify(messages));
+    } catch (e) {
+      console.error("Failed to save messages to localStorage:", e);
+    }
     scrollToBottom();
   }, [messages]);
+
+  const handleClearChat = () => {
+    if (window.confirm("Are you sure you want to clear the chat history?")) {
+      setMessages([]);
+      localStorage.removeItem("battle_arena_messages");
+    }
+  };
 
   const handleSend = async (e) => {
     e.preventDefault();
@@ -69,9 +89,19 @@ export default function App() {
             <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500">Neural Evaluation Engine</span>
           </div>
         </div>
-        <div className="flex items-center justify-center px-3.5 py-1 rounded-full bg-slate-900/60 border border-slate-800">
-          <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">System Online</span>
+        <div className="flex items-center gap-3">
+          {messages.length > 0 && (
+            <button 
+              onClick={handleClearChat}
+              className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 hover:text-red-400 px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-red-500/25 transition-colors cursor-pointer select-none"
+            >
+              Clear Chat
+            </button>
+          )}
+          <div className="flex items-center justify-center px-3.5 py-1 rounded-full bg-slate-900/60 border border-slate-800">
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500 mr-2"></div>
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">System Online</span>
+          </div>
         </div>
       </header>
 
