@@ -31,11 +31,11 @@ export default function App() {
     if (!inputValue.trim()) return;
 
     try {
-      const response = await axios.post("http://localhost:3000/invoke", {
+      const response = await axios.post("https://collaborative-llm-evaluator-backend.onrender.com/invoke" || "http://localhost:3000/invoke", {
         input: inputValue
       });
       const data = response.data;
-      console.log(data);
+      // console.log(data);
 
       const newMessage = {
         id: Date.now().toString(),

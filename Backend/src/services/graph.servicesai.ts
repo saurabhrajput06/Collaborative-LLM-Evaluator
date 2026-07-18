@@ -57,7 +57,7 @@ const judgeNode: GraphNode<typeof state> = async (state) => {
                 `)
         ]
     })
-    console.log(judgeResponse);
+    // console.log(judgeResponse);
 
     const {
         solution_1_score,
