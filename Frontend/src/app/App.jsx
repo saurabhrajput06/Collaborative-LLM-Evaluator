@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Sparkles, Scale, Cpu } from "lucide-react";
+import { Swords, Scale, Cpu } from "lucide-react";
 import { UserMessage } from "../components/UserMessage";
 import { ArenaResponse } from "../components/ArenaResponse";
 import { ChatInterface } from "../components/ChatInterface";
@@ -62,7 +62,7 @@ export default function App() {
       <header className="flex-none flex items-center justify-between px-8 py-4 bg-[#0b0f17] border-b border-slate-800 z-20 sticky top-0">
         <div className="flex items-center gap-3 cursor-pointer">
           <div className="w-9 h-9 rounded-lg bg-slate-900 text-indigo-400 flex items-center justify-center border border-slate-800">
-            <Sparkles className="w-5 h-5 text-indigo-500" />
+            <Swords className="w-5 h-5 text-indigo-500" />
           </div>
           <div className="flex flex-col">
             <h1 className="text-lg font-bold tracking-tight text-white">BATTLE ARENA</h1>
