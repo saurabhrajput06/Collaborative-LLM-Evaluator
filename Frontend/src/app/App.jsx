@@ -13,6 +13,11 @@ const MessageItem = ({ data }) => {
   );
 };
 
+const API_URL =
+  window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:3000/invoke"
+    : "https://collaborative-llm-evaluator-backend.onrender.com/invoke";
+
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -31,7 +36,7 @@ export default function App() {
     if (!inputValue.trim()) return;
 
     try {
-      const response = await axios.post("https://collaborative-llm-evaluator-backend.onrender.com/invoke" || "http://localhost:3000/invoke", {
+      const response = await axios.post(API_URL, {
         input: inputValue
       });
       const data = response.data;
